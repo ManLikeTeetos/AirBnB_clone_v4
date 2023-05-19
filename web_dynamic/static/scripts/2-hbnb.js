@@ -11,7 +11,8 @@ $('document').ready(() => {
       $('div.amenities h4').html(Object.values(checkedAmenities).join(', ') || '&nbsp;');
     });
 
-  $.get('http://0.0.0.0:5001/api/v1/status/', (data) => {
+  const url = 'http://' + window.location.hostname + '/api/v1/status';
+  $.get(url, (data) => {
     if (data.status === 'OK') {
       $('div#api_status').addClass('available');
     } else {
